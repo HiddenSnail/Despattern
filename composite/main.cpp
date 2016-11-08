@@ -16,6 +16,12 @@ int main() {
     d1.add(&d3);
     d1.add(&d4);
     d4.add(&t);
+
+    File c1 = File("root", 30);
+    Directory g1 = Directory("usr");
+    d1.add(&c1);
+    d1.add(&g1);
+    d1.add(&f);
     d1.printList();
     return 0;
 }

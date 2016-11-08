@@ -32,6 +32,7 @@ public:
     }
     std::string getName();
     int getSize();
+    bool isDir();
     void printList(std::string prefix);
     void printList();
 };

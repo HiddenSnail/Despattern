@@ -23,9 +23,11 @@ public:
 
     std::string getName();
     int getSize();
+    bool isDir();
     void printList(std::string prefix);
     void printList();
     virtual void add(Entry* e);
+    virtual Entry* remove(Entry* e);
 };
 
 

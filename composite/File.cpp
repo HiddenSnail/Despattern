@@ -12,6 +12,10 @@ int File::getSize() {
     return this->size;
 }
 
+bool File::isDir() {
+    return false;
+}
+
 void File::printList(std::string prefix) {
 
     std::cout << prefix << "/" << getName() << "(" << getSize() << ")" << std::endl;
