@@ -21,4 +21,7 @@ void File::printList(std::string prefix) {
     std::cout << prefix << "/" << getName() << "(" << getSize() << ")" << std::endl;
 }
 
-void File::printList() {printList("");}
+void File::printList() {
+    printList("");
+    Entry::printList();
+}

@@ -5,23 +5,19 @@
 using namespace std;
 
 int main() {
-    File f = File("test", 56);
-    File t;
-    Directory d1 = Directory("root");
-    Directory d2 = Directory("usr");
-    Directory d3 = Directory("temp");
-    Directory d4 = Directory("local");
-    d1.add(&f);
-    d1.add(&d2);
-    d1.add(&d3);
-    d1.add(&d4);
-    d4.add(&t);
+    cout << "Making root entries..." << endl;
+    Directory* rootdir = new Directory("root");
+    Directory* bindir = new Directory("bin");
+    Directory* tmpdir = new Directory("tmp");
+    Directory* usrdir = new Directory("usr");
 
-    File c1 = File("root", 30);
-    Directory g1 = Directory("usr");
-    d1.add(&c1);
-    d1.add(&g1);
-    d1.add(&f);
-    d1.printList();
+    rootdir->add(bindir);
+    rootdir->add(tmpdir);
+    rootdir->add(usrdir);
+
+    bindir->add(new File("vi.html", 10000));
+    bindir->add(new File("latex.cpp", 20000));
+    bindir->add(new File("vi.html", 0));
+    rootdir->printList();
     return 0;
 }
