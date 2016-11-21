@@ -19,5 +19,9 @@ int main() {
     bindir->add(new File("latex.cpp", 20000));
     bindir->add(new File("vi.html", 0));
     rootdir->printList();
+
+    rootdir->remove(bindir);
+
+    rootdir->printList();
     return 0;
 }

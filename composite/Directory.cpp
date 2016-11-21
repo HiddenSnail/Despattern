@@ -44,7 +44,9 @@ void Directory::printList(std::string prefix) {
     std::ostringstream msg;
     msg << prefix << "/" << this->getName();
     prefix = msg.str(); //获取前缀
-    std::cout << prefix << "[" << this->getSize() << "]" << std::endl;
+    std::cout << prefix << "["
+              << this->getSize() << "]"
+              << std::endl;
 
     int num = 0;
     while (dir.size() > num) {
@@ -59,11 +61,13 @@ void Directory::printList() {
 }
 
 Entry* Directory::remove(Entry *e) {
-    for (int num; num < dir.size(); num++) {
+    for (int num = 0; num < dir.size(); num++) {
         if (e->getName() == dir[num]->getName()) {
+
             Entry* del = dir[num];
             dir[num] = dir.back();
-            dir.pop_back();
+            dir.pop_back(); //不需要释放指针所指的内容
+
             //递归删除directory
             if (true == del->isDir()) {
                 Directory* temp = (Directory*)del;
@@ -71,7 +75,7 @@ Entry* Directory::remove(Entry *e) {
                     temp->remove(temp->dir[index]);
                 }
             }
-            delete del; //不理解
+            delete del;
             return this;
         }
     }

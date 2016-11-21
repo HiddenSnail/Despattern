@@ -29,6 +29,10 @@ public:
     virtual Entry* add(Entry* e);
     virtual Entry* remove(Entry* e);
     Entry* removeAll();
+
+    int getLength() {
+        return dir.size();
+    }
 };
 
 

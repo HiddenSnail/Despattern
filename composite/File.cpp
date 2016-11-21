@@ -18,7 +18,10 @@ bool File::isDir() {
 
 void File::printList(std::string prefix) {
 
-    std::cout << prefix << "/" << getName() << "(" << getSize() << ")" << std::endl;
+    std::cout << prefix << "/"
+              << getName() << "("
+              << getSize() << ")"
+              << std::endl;
 }
 
 void File::printList() {

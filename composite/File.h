@@ -17,7 +17,12 @@ public:
         this->size = 0;
     }
     File(std::string fname) {
-        this->name = fname;
+        if (fname == "") {
+            this->name = "untitle";
+        }
+        else {
+            this->name = fname;
+        }
         this->size = 0;
     }
     File(std::string fname, int fsize) {
@@ -28,7 +33,13 @@ public:
         } else {
             this->size = fsize;
         }
-        this->name = fname;
+
+        if (fname == "") {
+            this->name = "untitle";
+        }
+        else {
+            this->name = fname;
+        }
     }
     std::string getName();
     int getSize();
