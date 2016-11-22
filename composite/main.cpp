@@ -4,6 +4,25 @@
 #include "Directory.h"
 using namespace std;
 
+class A{
+public:
+    virtual void print() {
+        cout << "I am A" << endl;
+    }
+};
+
+class B:public A {
+    virtual void print() {
+        cout << "I am B" << endl;
+    }
+};
+
+class C:public A {
+    virtual void print() {
+        cout << "I am C" << endl;
+    }
+};
+
 int main() {
     cout << "Making root entries..." << endl;
     Directory* rootdir = new Directory("root");
@@ -20,8 +39,14 @@ int main() {
     bindir->add(new File("vi.html", 0));
     rootdir->printList();
 
-    rootdir->remove(bindir);
-
+    rootdir->remove("bin");
     rootdir->printList();
+
+//    A a;
+//    a.print();
+//
+//    B b;
+//    C c;
+
     return 0;
 }

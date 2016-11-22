@@ -6,11 +6,13 @@
 #define COMPOSITE_FILE_H
 
 #include "Entry.h"
+#include "Directory.h"
 
 class File: public Entry {
 private:
     std::string name;
     int size;
+    virtual Entry* remove(Entry* upper);
 public:
     File() {
         this->name = "untitle";
@@ -43,7 +45,6 @@ public:
     }
     std::string getName();
     int getSize();
-    bool isDir();
     void printList(std::string prefix);
     void printList();
 };

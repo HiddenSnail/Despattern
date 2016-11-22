@@ -6,13 +6,19 @@
 #define COMPOSITE_DIRECTORY_H
 
 #include "Entry.h"
+#include "File.h"
 #include <sstream>
 #include <vector>
+#include "State.h"
+
 
 class Directory: public Entry {
+    friend class File;
 private:
     std::string name;
     std::vector<Entry*> dir; //已定义出object
+    State state; //observer中, subject状态
+    virtual Entry* remove(Entry* upper);
 public:
     Directory() {
         this->name = "untitle";
@@ -23,16 +29,11 @@ public:
 
     std::string getName();
     int getSize();
-    bool isDir();
     void printList(std::string prefix);
     void printList();
-    virtual Entry* add(Entry* e);
-    virtual Entry* remove(Entry* e);
-    Entry* removeAll();
-
-    int getLength() {
-        return dir.size();
-    }
+    Entry* remove(std::string name);
+    Entry* add(Entry* e);
+    Entry* add(std::string name, int size);
 };
 
 
