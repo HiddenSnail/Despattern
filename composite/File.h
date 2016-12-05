@@ -10,17 +10,20 @@
 
 class File: public Entry {
 private:
+    static int VERNUM;
     std::string name;
     int size;
-    virtual Entry* remove(Entry* upper);
+    virtual Entry* remove();
 public:
     File() {
-        this->name = "untitle";
+        this->name = "untitle" + std::to_string(VERNUM);
         this->size = 0;
+        VERNUM++;
     }
     File(std::string fname) {
         if (fname == "") {
-            this->name = "untitle";
+            this->name = "untitle" + std::to_string(VERNUM);
+            VERNUM++;
         }
         else {
             this->name = fname;
@@ -37,7 +40,8 @@ public:
         }
 
         if (fname == "") {
-            this->name = "untitle";
+            this->name = "untitle" + std::to_string(VERNUM);
+            VERNUM++;
         }
         else {
             this->name = fname;

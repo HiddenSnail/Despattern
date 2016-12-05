@@ -9,19 +9,18 @@
 #include "File.h"
 #include <sstream>
 #include <vector>
-#include "State.h"
 
 
 class Directory: public Entry {
-    friend class File;
 private:
+    static int VERNUM;
     std::string name;
     std::vector<Entry*> dir; //已定义出object
-    State state; //observer中, subject状态
-    virtual Entry* remove(Entry* upper);
+    virtual Entry* remove();
 public:
     Directory() {
-        this->name = "untitle";
+        this->name = "directory" + std::to_string(VERNUM);
+        VERNUM++;
     }
     Directory(std::string fname) {
         this->name = fname;
@@ -31,10 +30,8 @@ public:
     int getSize();
     void printList(std::string prefix);
     void printList();
-    Entry* remove(std::string name);
+    Entry* remove(std::string name);    //移除文件(文件夹)的接口
     Entry* add(Entry* e);
-    Entry* add(std::string name, int size);
 };
-
 
 #endif //COMPOSITE_DIRECTORY_H

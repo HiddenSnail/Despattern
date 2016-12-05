@@ -15,7 +15,7 @@ public:
     virtual int getSize() = 0;
     virtual void printList(std::string prefix) = 0;
     virtual void printList() {std::cout << std::endl;}
-    virtual Entry* remove(Entry* e) {}; //待修改
+    virtual Entry* remove() = 0;
 };
 
 

@@ -3,6 +3,7 @@
 //
 
 #include "File.h"
+int File::VERNUM = 1;
 
 std::string File::getName() {
     return this->name;
@@ -25,18 +26,9 @@ void File::printList() {
     Entry::printList();
 }
 
-Entry* File::remove(Entry* upper) {
-    Directory* parent = (Directory*)upper;
-    File* del = this;
-    for (int index = 0; parent->dir.size(); index++) {
-        if (parent->dir[index] == this) {
-            parent->dir[index] = parent->dir.back();
-            parent->dir.pop_back();
-            delete(del);
-            return this;
-        }
-    }
-    //删除失败
-    std::cout << "删除失败！" << std::endl;
-    return NULL;
+Entry* File::remove() {
+    Entry* del = this;
+    delete del;
+    std::cout << name << " 文件已成功删除！" << std::endl;
+    return this;
 }
