@@ -2,12 +2,10 @@
 <module type="CPP_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/FileException.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/State.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Directory.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/File.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Directory.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Entry.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/File.cpp" isTestSource="false" />
