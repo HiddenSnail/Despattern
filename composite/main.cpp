@@ -23,6 +23,8 @@ int main() {
     localdir->add(new File("vi.html", 0));
     rootdir->printList();
 
+//    rootdir->update(true);
+    bindir->update(true);
     rootdir->remove("bin");
     rootdir->printList();
     return 0;

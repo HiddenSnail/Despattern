@@ -27,8 +27,16 @@ void File::printList() {
 }
 
 Entry* File::remove() {
+    if(isImportant == true) {
+        std::cout << name << " 文件夹是重要文件，删除失败" << std::endl;
+        return NULL;
+    }
     Entry* del = this;
     delete del;
     std::cout << name << " 文件已成功删除！" << std::endl;
     return this;
+}
+
+void File::update(bool signal) {
+    this->isImportant = signal;
 }

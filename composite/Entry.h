@@ -9,6 +9,8 @@
 #include <string>
 
 class Entry {
+protected:
+    bool isImportant = false;
 public:
     virtual ~Entry(){};
     virtual std::string getName() = 0;
@@ -16,6 +18,7 @@ public:
     virtual void printList(std::string prefix) = 0;
     virtual void printList() {std::cout << std::endl;}
     virtual Entry* remove() = 0;
+    virtual void update(bool signal) = 0;
 };
 
 

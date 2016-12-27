@@ -51,6 +51,7 @@ public:
     int getSize();
     void printList(std::string prefix);
     void printList();
+    void update(bool signal);
 };
 
 

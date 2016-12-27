@@ -7,6 +7,10 @@
 int Directory::VERNUM = 1;
 
 Entry* Directory::remove() {
+    if(isImportant == true) {
+        std::cout << name << " 文件夹是重要文件夹，删除失败" << std::endl;
+        return NULL;
+    }
     Entry* del = this;
     while(this->dir.size()) {
         this->dir.back()->remove();
@@ -21,9 +25,12 @@ Entry* Directory::remove(std::string name) {
     for(int index = 0; index < dir.size(); index++) {
         if (name == dir[index]->getName()) {
             Entry* target = dir[index];
-            dir[index] = dir.back();
-            dir.pop_back();
-            return target->remove();
+            Entry* result = target->remove();
+            if (result != NULL) {
+                dir[index] = dir.back();
+                dir.pop_back();
+            }
+            return result;
         }
     }
 }
@@ -74,3 +81,13 @@ void Directory::printList() {
     Entry::printList();
 }
 
+void Directory::update(bool signal) {
+    isImportant = signal;
+    notify();
+}
+
+void Directory::notify() {
+    for (int i = 0;i < dir.size();i++) {
+        dir[i]->update(isImportant);
+    }
+}

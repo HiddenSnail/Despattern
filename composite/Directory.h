@@ -32,6 +32,9 @@ public:
     void printList();
     Entry* remove(std::string name);    //移除文件(文件夹)的接口
     Entry* add(Entry* e);
+
+    void update(bool signal);
+    void notify();
 };
 
 #endif //COMPOSITE_DIRECTORY_H
